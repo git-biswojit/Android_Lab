@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DisplayDataFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/empData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:text="My Data"/>
+
+        <TextView
+            android:id="@+id/empNameTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empData"
+            android:layout_marginTop="20dp"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:text="My Name"/>
+        <TextView
+            android:id="@+id/empEmailTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empNameTV"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:text="My Email"/>
+        <TextView
+            android:id="@+id/empAgeTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empEmailTV"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:text="My Age"/>
+        <TextView
+            android:id="@+id/empGenderTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empAgeTV"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:text="My Gender"/>
+        <TextView
+            android:id="@+id/empHobbiesTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empGenderTV"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:text="My Hobbies"/>
+        <TextView
+            android:id="@+id/empCountryTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empHobbiesTV"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:text="My Country"/>
+        <TextView
+            android:id="@+id/empExperienceTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empCountryTV"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:text="My Experience"/>
+        <TextView
+            android:id="@+id/empQualificationTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empExperienceTV"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:text="My Qualification"/>
+        <TextView
+            android:id="@+id/empExpSalaryTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empQualificationTV"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:text="My Expected Salary"/>
+        <TextView
+            android:id="@+id/empPrevCompaniesTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empExpSalaryTV"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:text="My Previous Companies"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
