@@ -2,10 +2,17 @@ package com.example.onenightbeforeexam;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -14,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
@@ -24,6 +32,8 @@ import java.time.Period;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
+import android.Manifest;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,7 +49,15 @@ public class Page1_Fragment extends Fragment {
     Button ageBtn, nextBtn;
     CheckBox chkHobby1, chkHobby2, chkHobby3;
     Spinner spnCountry;
+    ImageView profilePicture;
     int age;
+    private static final int CAMERA_PERMISSION_CODE = 100;
+
+
+    //NEW APPROACH RECOMMENDED BY CHATGPT
+    private static final String PERMISSION_NAME = Manifest.permission.CAMERA;
+    private ActivityResultLauncher<String> permissionLauncher;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,6 +100,16 @@ public class Page1_Fragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        permissionLauncher = registerForActivityResult(
+                new ActivityResultContracts.RequestPermission(),
+                isGranted -> {
+                    if(isGranted){
+                        launchCamera();
+                    }else{
+                        Toast.makeText(getContext(),"Camera Permission Not Granted",Toast.LENGTH_SHORT);
+                    }
+                }
+        );
     }
 
     @Override
@@ -90,6 +118,7 @@ public class Page1_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_page1_, container, false);
         init(view);
+
         clickListner();
         return view;
     }
@@ -106,6 +135,7 @@ public class Page1_Fragment extends Fragment {
         chkHobby2 = view.findViewById(R.id.hobby2Chk);
         chkHobby3 = view.findViewById(R.id.hobby3Chk);
         spnCountry = view.findViewById(R.id.conutrySpnr);
+        profilePicture = view.findViewById(R.id.profilePicture);
     }
 
     private void clickListner(){
@@ -114,6 +144,7 @@ public class Page1_Fragment extends Fragment {
         onTextChangeListner(wrpEmail);
         ageBtn.setOnClickListener(v -> showDatePickerAndGetAge());
         nextBtn.setOnClickListener(v -> handleData());
+        profilePicture.setOnClickListener(v -> getProfilePicture());
     }
 
     private void handleData(){
@@ -201,4 +232,31 @@ public class Page1_Fragment extends Fragment {
     private int getAge(int year,int month,int dayOfMonth){
         return Period.between(LocalDate.of(year,month,dayOfMonth),LocalDate.now()).getYears();
     }
+
+    public void checkCameraPermission(){
+        if(ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
+//            ActivityCompat.requestPermissions(
+//                    getActivity(), new String[]{Manifest.permission.CAMERA},CAMERA_PERMISSION_CODE
+//            );
+            permissionLauncher.launch(Manifest.permission.CAMERA);
+
+        }else{
+            Toast.makeText(getActivity(),"Permission already granted",Toast.LENGTH_SHORT).show();
+            launchCamera();
+        }
+    }
+
+    private void getProfilePicture(){
+        checkCameraPermission();
+    }
+    private void launchCamera(){
+        Intent newPictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if(newPictureIntent.resolveActivity(getActivity().getPackageManager()) != null){
+            Toast.makeText(getContext(), "Helo Melo", Toast.LENGTH_SHORT);
+        }else{
+            Toast.makeText(getContext(), "Helo Melo Jelo", Toast.LENGTH_SHORT);
+        }
+    }
+
+
 }
