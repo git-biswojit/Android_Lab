@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".DisplayDataFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
 
         <TextView
             android:id="@+id/empData"
@@ -20,7 +20,8 @@
             app:layout_constraintTop_toTopOf="parent"
             android:textAlignment="center"
             android:textSize="30sp"
-            android:text="My Data"/>
+            android:layout_margin="30sp"
+            android:text="Employee Data"/>
 
         <TextView
             android:id="@+id/empNameTV"

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.example.onenightbeforeexam.R;
 
 import java.util.ArrayList;
@@ -20,8 +21,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
     public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.item_notes,parent,false);
-        NoteViewHolder noteViewHolder = new NoteViewHolder(view);
-        return noteViewHolder;
+        return new NoteViewHolder(view);
     }
 
     @Override

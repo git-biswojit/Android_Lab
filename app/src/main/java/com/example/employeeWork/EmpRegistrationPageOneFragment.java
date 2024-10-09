@@ -1,4 +1,4 @@
-package com.example.onenightbeforeexam;
+package com.example.employeeWork;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -7,8 +7,6 @@ import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.core.app.ActivityCompat;
-import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -25,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
+import com.example.onenightbeforeexam.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.time.LocalDate;
@@ -37,10 +36,9 @@ import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Page1_Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Page1_Fragment extends Fragment {
+public class EmpRegistrationPageOneFragment extends Fragment {
     Employee employee;
 
     //in init method initialise all views
@@ -59,54 +57,23 @@ public class Page1_Fragment extends Fragment {
     private ActivityResultLauncher<String> permissionLauncher;
 
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Page1_Fragment() {
+    public EmpRegistrationPageOneFragment() {
         // Required empty public constructor
     }
-    public Page1_Fragment(Employee employee){
+    public EmpRegistrationPageOneFragment(Employee employee){
         this.employee=employee;
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Page1_Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Page1_Fragment newInstance(String param1, String param2) {
-        Page1_Fragment fragment = new Page1_Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
         permissionLauncher = registerForActivityResult(
                 new ActivityResultContracts.RequestPermission(),
                 isGranted -> {
                     if(isGranted){
                         launchCamera();
                     }else{
-                        Toast.makeText(getContext(),"Camera Permission Not Granted",Toast.LENGTH_SHORT);
+                        Toast.makeText(getContext(),"Camera Permission Not Granted",Toast.LENGTH_SHORT).show();
                     }
                 }
         );
@@ -116,7 +83,7 @@ public class Page1_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_page1_, container, false);
+        View view = inflater.inflate(R.layout.fragment_emp_reg_pg1, container, false);
         init(view);
 
         clickListner();
@@ -182,9 +149,9 @@ public class Page1_Fragment extends Fragment {
         e.setCountry(country);
         System.out.println(e);
 
-        Page2_Fragment page2Fragment = new Page2_Fragment(e);
+        EmpRegistrationPageTwoFragment empRegistrationPageTwoFragment = new EmpRegistrationPageTwoFragment(e);
         getParentFragmentManager().beginTransaction()
-                .replace(R.id.mainFrameLayout,page2Fragment).commit();
+                .replace(R.id.mainFrameLayout,empRegistrationPageTwoFragment).commit();
 
     }
 

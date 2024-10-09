@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">oneNightBeforeExam</string>
+    <string name="app_name">AndroidLab</string>
     <array name="countries">
         <item>India</item>
         <item>Pakistan</item>
@@ -8,4 +8,6 @@
     </array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="notes_thing">Notes Thing</string>
+    <string name="employee_thing">Employee Thing</string>
 </resources>

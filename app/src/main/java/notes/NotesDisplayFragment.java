@@ -16,47 +16,23 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import java.util.ArrayList;
 
 
-public class NotesDetailsFragment extends Fragment {
+public class NotesDisplayFragment extends Fragment {
 
     Button next;
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    private String mParam1;
-    private String mParam2;
-
-
-    public NotesDetailsFragment() {
+    public NotesDisplayFragment() {
         // Required empty public constructor
-    }
-
-    public static NotesDetailsFragment newInstance(String param1, String param2) {
-        NotesDetailsFragment fragment = new NotesDetailsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_notes_detailsfragment, container, false);
-        ExtendedFloatingActionButton fabAddnew = view.findViewById(R.id.fabAddNewButton);
+        View view =  inflater.inflate(R.layout.fragment_display_notes, container, false);
+        ExtendedFloatingActionButton addNewNoteBtn = view.findViewById(R.id.addNewNoteBtn);
         init(view);
-        fabAddnew.setOnClickListener(v -> onNewClick());
+        addNewNoteBtn.setOnClickListener(v -> onNewClick());
 
         RecyclerView recyclerView = view.findViewById(R.id.rclnotes);
         NoteAdapter noteAdapter = new NoteAdapter();
@@ -69,7 +45,7 @@ public class NotesDetailsFragment extends Fragment {
     }
 
     private void init(View view) {
-        next = view.findViewById(R.id.fabAddNewButton);
+        next = view.findViewById(R.id.addNewNoteBtn);
     }
     private void onNewClick(){
         NotesFragment notesFragment = new NotesFragment();

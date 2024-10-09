@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="notes.NotesDetailsFragment">
+    tools:context="notes.NotesDisplayFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,8 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/rclnotes"
-            app:layoutManager="com.google.android.material.carousel.CarouselLayoutManager"
-            >
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
         </androidx.recyclerview.widget.RecyclerView>
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:layout_width="wrap_content"
@@ -28,8 +28,8 @@
             android:textColor="@color/white"
             app:iconTint="@color/white"
             android:backgroundTint="#664fa2"
-            android:id="@+id/fabAddNewButton"
-        ></com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+            android:id="@+id/addNewNoteBtn"
+        />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

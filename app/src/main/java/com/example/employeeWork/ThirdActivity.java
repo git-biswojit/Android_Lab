@@ -1,9 +1,5 @@
-package com.example.onenightbeforeexam;
+package com.example.employeeWork;
 
-import android.os.Bundle;
-import android.widget.TextView;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ThirdActivity extends AppCompatActivity {

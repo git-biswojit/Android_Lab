@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.onenightbeforeexam.R;
 
+
 public class NotesActivity extends AppCompatActivity {
 
     @Override
@@ -24,8 +25,8 @@ public class NotesActivity extends AppCompatActivity {
             return insets;
         });
         if(savedInstanceState == null){
-            NotesDetailsFragment notesDetailsFragmentFragement = new NotesDetailsFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.main, notesDetailsFragmentFragement).commit();
+            NotesDisplayFragment notesDisplayFragmentFragement = new NotesDisplayFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.main, notesDisplayFragmentFragement).commit();
         }
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback( true) {

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Page2_Fragment">
+    android:background="@android:color/white">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -13,23 +13,26 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="15sp">
         <TextView
-            android:id="@+id/pageHeadingText"
+            android:id="@+id/secondPageHeadingText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:text="Second Page"
+            android:textStyle="bold"
             android:textAlignment="center"
-            android:textSize="20sp"/>
+            android:layout_margin="20sp"
+            android:textSize="30sp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/qualificationText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pageHeadingText"
+            app:layout_constraintTop_toBottomOf="@+id/secondPageHeadingText"
             android:layout_marginTop="5dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
