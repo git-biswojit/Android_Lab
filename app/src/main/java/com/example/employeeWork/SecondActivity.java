@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.onenightbeforeexam.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;

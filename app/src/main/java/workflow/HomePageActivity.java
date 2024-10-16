@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.employeeWork.EmpRegistrationMainActivity;
-import com.example.onenightbeforeexam.R;
+import com.example.employeeWork.R;
 
 import notes.NotesActivity;
 

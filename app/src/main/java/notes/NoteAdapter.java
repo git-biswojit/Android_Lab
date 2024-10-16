@@ -8,13 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.example.onenightbeforeexam.R;
+import com.example.employeeWork.R;
 
 import java.util.ArrayList;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
 
-    private ArrayList<Notes> notesArrayList = new ArrayList<>();
+    private final ArrayList<Notes> notesArrayList = new ArrayList<>();
 
     @NonNull
     @Override
@@ -37,7 +37,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
     }
 
     public void setNotesArrayList(ArrayList<Notes> notesArrayList){
-        this.notesArrayList.clear();
+//        this.notesArrayList.clear();
         this.notesArrayList.addAll(notesArrayList);
         notifyDataSetChanged();
     }

@@ -23,7 +23,6 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
-import com.example.onenightbeforeexam.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.time.LocalDate;

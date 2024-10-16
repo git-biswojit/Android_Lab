@@ -6,7 +6,6 @@ import android.widget.Button;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.onenightbeforeexam.R;
 
 public class EmpRegistrationMainActivity extends AppCompatActivity {
 

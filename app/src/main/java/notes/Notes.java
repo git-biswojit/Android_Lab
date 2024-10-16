@@ -26,6 +26,11 @@ public class Notes implements Serializable {
                 return noteTitle;
         }
 
+        @Override
+        public String toString() {
+                return "Notes{ " + noteTitle  +"\\"+ noteDescription +"}";
+        }
+
         public void setNoteTitle(String noteTitle) {
                 this.noteTitle = noteTitle;
         }
