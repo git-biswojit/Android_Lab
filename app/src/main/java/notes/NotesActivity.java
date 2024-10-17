@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
 import com.example.employeeWork.R;
 
 
@@ -17,7 +19,7 @@ public class NotesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notes);
         if(savedInstanceState == null){
             NotesDisplayFragment notesDisplayFragment = new NotesDisplayFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.main, notesDisplayFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.notesContainer, notesDisplayFragment).commit();
         }
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback( true) {
@@ -31,5 +33,9 @@ public class NotesActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void loadFragment(Fragment fragment){
+        getSupportFragmentManager().beginTransaction().replace(R.id.notesContainer,fragment).addToBackStack(null).commit();
     }
 }

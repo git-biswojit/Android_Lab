@@ -50,7 +50,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
     }
 
     public void setNotesArrayList(ArrayList<Notes> notesArrayList){
-//        this.notesArrayList.clear();
+        this.notesArrayList.clear();
         this.notesArrayList.addAll(notesArrayList);
         notifyDataSetChanged();
     }
