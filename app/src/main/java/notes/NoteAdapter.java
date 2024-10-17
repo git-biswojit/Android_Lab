@@ -12,9 +12,16 @@ import com.example.employeeWork.R;
 
 import java.util.ArrayList;
 
+
 public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
 
     private final ArrayList<Notes> notesArrayList = new ArrayList<>();
+    private final NoteItemInterface noteItemInterface;
+
+    public NoteAdapter(NoteItemInterface noteItemInterface) {
+        this.noteItemInterface = noteItemInterface;
+    }
+
 
     @NonNull
     @Override
@@ -24,11 +31,17 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
         return new NoteViewHolder(view);
     }
 
+
+
     @Override
     public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
         Notes note = notesArrayList.get(position);
         holder.tvTitle.setText(note.getNoteTitle());
         holder.tvDescription.setText(note.getNoteDescription());
+        holder.cvNoteItem.setOnClickListener(v -> noteItemInterface.onItemClickListner(note));
+        holder.cvNoteItem.setOnLongClickListener(v->    {
+                        noteItemInterface.onItemLongClickListner(note);
+                                                        return false;});
     }
 
     @Override
